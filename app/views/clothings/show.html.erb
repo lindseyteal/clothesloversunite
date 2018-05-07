@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @clothing.user %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @clothing.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @clothing.description %>
+</p>
+
+<p>
+  <strong>Clothing type:</strong>
+  <%= @clothing.clothing_type %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @clothing.gender %>
+</p>
+
+<p>
+  <strong>Clothing size:</strong>
+  <%= @clothing.clothing_size %>
+</p>
+
+<p>
+  <strong>Item price:</strong>
+  <%= @clothing.item_price %>
+</p>
+
+<p>
+  <strong>Postage price:</strong>
+  <%= @clothing.postage_price %>
+</p>
+
+<p>
+  <strong>Image data:</strong>
+  <%= @clothing.image_data %>
+</p>
+
+<%= link_to 'Edit', edit_clothing_path(@clothing) %> |
+<%= link_to 'Back', clothings_path %>

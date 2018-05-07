@@ -1,0 +1,62 @@
+<%= form_with(model: clothing, local: true) do |form| %>
+  <% if clothing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(clothing.errors.count, "error") %> prohibited this clothing from being saved:</h2>
+
+      <ul>
+      <% clothing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :clothing_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :clothing_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :clothing_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :clothing_type_id %>
+    <%= form.text_field :clothing_type_id, id: :clothing_clothing_type_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender_id %>
+    <%= form.text_field :gender_id, id: :clothing_gender_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :clothing_size_id %>
+    <%= form.text_field :clothing_size_id, id: :clothing_clothing_size_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :item_price %>
+    <%= form.number_field :item_price, id: :clothing_item_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :postage_price %>
+    <%= form.number_field :postage_price, id: :clothing_postage_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_data %>
+    <%= form.text_field :image_data, id: :clothing_image_data %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

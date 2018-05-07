@@ -10,10 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507005233) do
+ActiveRecord::Schema.define(version: 20180507053953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clothing_sizes", force: :cascade do |t|
+    t.bigint "gender_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gender_id"], name: "index_clothing_sizes_on_gender_id"
+  end
+
+  create_table "clothing_types", force: :cascade do |t|
+    t.string "clothing_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "clothings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "title"
+    t.text "description"
+    t.bigint "clothing_type_id"
+    t.bigint "gender_id"
+    t.bigint "clothing_size_id"
+    t.integer "item_price"
+    t.integer "postage_price"
+    t.string "image_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clothing_size_id"], name: "index_clothings_on_clothing_size_id"
+    t.index ["clothing_type_id"], name: "index_clothings_on_clothing_type_id"
+    t.index ["gender_id"], name: "index_clothings_on_gender_id"
+    t.index ["user_id"], name: "index_clothings_on_user_id"
+  end
+
+  create_table "genders", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id"
@@ -47,5 +83,10 @@ ActiveRecord::Schema.define(version: 20180507005233) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "clothing_sizes", "genders"
+  add_foreign_key "clothings", "clothing_sizes"
+  add_foreign_key "clothings", "clothing_types"
+  add_foreign_key "clothings", "genders"
+  add_foreign_key "clothings", "users"
   add_foreign_key "profiles", "users"
 end
