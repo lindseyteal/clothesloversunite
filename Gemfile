@@ -8,6 +8,8 @@ end
 # Added Gems
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'shrine', '~> 2.11'
+gem 'mini_magick', '~> 4.8'
+gem 'image_processing', '~> 1.2'
 gem 'mailgun_rails', '~> 0.9.0'
 gem 'pundit', '~> 1.1'
 gem 'stripe', '~> 3.13'

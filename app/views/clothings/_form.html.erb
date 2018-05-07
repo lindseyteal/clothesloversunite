@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :clothing_user_id %>
-  </div>
+
 
   <div class="field">
     <%= form.label :title %>
@@ -33,7 +30,13 @@
 
   <div class="field">
     <%= form.label :gender_id %>
-    <%= form.text_field :gender_id, id: :clothing_gender_id %>
+    <select required name="gender">
+    <option></option>
+    <option value="1">Ladies</option>
+    <option value="2">Gentlemen</option>
+    <option value="3">Unisex</option>
+    </select>
+ 
   </div>
 
   <div class="field">
@@ -52,8 +55,9 @@
   </div>
 
   <div class="field">
-    <%= form.label :image_data %>
-    <%= form.text_field :image_data, id: :clothing_image_data %>
+    <%= form.label :image %>
+    <%= form.hidden_field :image, value: @clothing.cached_image_data %>
+    <%= form.file_field :image, id: :clothing_image_data %>
   </div>
 
   <div class="actions">

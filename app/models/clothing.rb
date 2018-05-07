@@ -1,6 +1,10 @@
 class Clothing < ApplicationRecord
+  
+  include ImageUploader::Attachment.new(:image)
   belongs_to :user
   belongs_to :clothing_type
-  belongs_to :gender
+  has_one :gender
   belongs_to :clothing_size
+
+  
 end
