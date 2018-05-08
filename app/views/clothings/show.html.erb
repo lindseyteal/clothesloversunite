@@ -38,7 +38,7 @@
 <p>
   <strong>Image data:</strong>
   <% if @clothing.image.present? %>
-    <%= image_tag @clothing.image.url %>
+    <%= image_tag @clothing.image_url(:medium) %>
   <% end %>
 </p>
 

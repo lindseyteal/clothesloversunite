@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :profiles
   # get 'pages/home' to: 'pages#home'
   get '/profiles/:id/edit', to: 'profiles#edit'
-
   get '/profiles/:id', to: 'profiles#show'
 
   devise_for :users
@@ -12,10 +11,6 @@ Rails.application.routes.draw do
   resources :clothings
   get '/clothings', to: 'clothings#index'
   post '/clothings', to: 'clothings#create'
-  
-  post '/clothings' do
-    Image.create(params[:image])
-  end
   
 end
 
