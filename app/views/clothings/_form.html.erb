@@ -11,8 +11,6 @@
     </div>
   <% end %>
 
-
-
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :clothing_title %>
@@ -25,39 +23,36 @@
 
   <div class="field">
     <%= form.label :clothing_type_id %>
-    <%= form.text_field :clothing_type_id, id: :clothing_clothing_type_id %>
+    <%= form.collection_select(:clothing_type_id, @clothing_type, :id, :clothing_type, prompt: true) %>
   </div>
 
   <div class="field">
     <%= form.label :gender_id %>
-    <select required name="gender">
-    <option></option>
-    <option value="1">Ladies</option>
-    <option value="2">Gentlemen</option>
-    <option value="3">Unisex</option>
+    <%= form.collection_select(:gender_id, @gender, :id, :gender, prompt: true) %>
     </select>
  
   </div>
 
   <div class="field">
     <%= form.label :clothing_size_id %>
-    <%= form.text_field :clothing_size_id, id: :clothing_clothing_size_id %>
+    <%= form.collection_select(:clothing_size_id, @clothing_size, :id, :clothing_size, prompt: true) %>
+    </select>
   </div>
 
   <div class="field">
     <%= form.label :item_price %>
-    <%= form.number_field :item_price, id: :clothing_item_price %>
+    <%= form.number_field :item_price, id: :clothing_item_price, in: 1.0..10.0, step: 0.5 %>
   </div>
 
   <div class="field">
     <%= form.label :postage_price %>
-    <%= form.number_field :postage_price, id: :clothing_postage_price %>
+    <%= form.number_field :postage_price, id: :clothing_postage_price, in: 1.0..10.0, step: 0.5 %>
   </div>
 
   <div class="field">
     <%= form.label :image %>
     <%= form.hidden_field :image, value: @clothing.cached_image_data %>
-    <%= form.file_field :image, id: :clothing_image_data %>
+    <%= form.file_field :image %>
   </div>
 
   <div class="actions">

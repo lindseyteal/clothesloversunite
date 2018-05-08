@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :clothings
   get '/clothings', to: 'clothings#index'
+  post '/clothings', to: 'clothings#create'
+  
+  post '/clothings' do
+    Image.create(params[:image])
+  end
   
 end
 

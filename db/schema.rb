@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507053953) do
+ActiveRecord::Schema.define(version: 20180508063425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180507053953) do
     t.bigint "gender_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "clothing_size"
     t.index ["gender_id"], name: "index_clothing_sizes_on_gender_id"
   end
 
@@ -37,7 +38,7 @@ ActiveRecord::Schema.define(version: 20180507053953) do
     t.bigint "clothing_size_id"
     t.integer "item_price"
     t.integer "postage_price"
-    t.string "image_data"
+    t.text "image_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["clothing_size_id"], name: "index_clothings_on_clothing_size_id"
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20180507053953) do
   create_table "genders", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "gender"
   end
 
   create_table "profiles", force: :cascade do |t|

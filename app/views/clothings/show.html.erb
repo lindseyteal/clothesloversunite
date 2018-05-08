@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @clothing.user %>
-</p>
-
-<p>
   <strong>Title:</strong>
   <%= @clothing.title %>
 </p>
@@ -17,17 +12,17 @@
 
 <p>
   <strong>Clothing type:</strong>
-  <%= @clothing.clothing_type %>
+  <%= @clothing.clothing_type_id %>
 </p>
 
 <p>
   <strong>Gender:</strong>
-  <%= @clothing.gender %>
+  <%# <%= @clothing.gender %> 
 </p>
 
 <p>
   <strong>Clothing size:</strong>
-  <%= @clothing.clothing_size %>
+  <%# <%= @clothing.clothing_size %>
 </p>
 
 <p>
@@ -43,7 +38,7 @@
 <p>
   <strong>Image data:</strong>
   <% if @clothing.image.present? %>
-    <%= image_tag @clothing.image[:medium].url %>
+    <%= image_tag @clothing.image.url %>
   <% end %>
 </p>
 

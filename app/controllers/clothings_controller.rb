@@ -15,6 +15,9 @@ class ClothingsController < ApplicationController
   # GET /clothings/new
   def new
     @clothing = Clothing.new
+    @clothing_type = ClothingType.all
+    @gender = Gender.all
+    @clothing_size = ClothingSize.all
   end
 
   # GET /clothings/1/edit
@@ -25,7 +28,7 @@ class ClothingsController < ApplicationController
   # POST /clothings.json
   def create
     @clothing = Clothing.new(clothing_params)
-
+    @clothing.user = current_user
     respond_to do |format|
       if @clothing.save
         format.html { redirect_to @clothing, notice: 'Clothing was successfully created.' }
