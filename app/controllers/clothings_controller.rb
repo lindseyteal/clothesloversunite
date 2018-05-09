@@ -12,6 +12,7 @@ class ClothingsController < ApplicationController
   def show
     @clothing_type = ClothingType.find_by(id: params[:id])
     @gender = Gender.find_by(id: params[:id])
+    @clothing_size = ClothingSize.find_by(id: params[:id])
     # @clothing_types = ClothingType.all
     # @genders = Gender.all
     # @clothing_sizes = ClothingSize.all

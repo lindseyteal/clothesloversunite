@@ -1,5 +1,8 @@
 class ProfilesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_profile_presence, only: [:new, :create]
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+ 
 
   # GET /profiles
   # GET /profiles.json
@@ -10,7 +13,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    @profile.current_user
+  
   end
 
   # GET /profiles/new
@@ -28,6 +31,7 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
+    @profile.user_id = current_user.id
     
     respond_to do |format|
       if @profile.save
@@ -65,10 +69,17 @@ class ProfilesController < ApplicationController
   end
 
   private
+    def check_profile_presence
+      user_profile = current_user.profile
+      redirect_to profile_path(user_profile.id) if user_profile
+    end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
-      @profile = Profile.find(params[:user_id])
+      @profile = Profile.find(params[:id])
     end
+
+   
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
