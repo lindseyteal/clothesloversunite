@@ -23,19 +23,19 @@
 
   <div class="field">
     <%= form.label :clothing_type_id %>
-    <%= form.collection_select(:clothing_type_id, @clothing_type, :id, :clothing_category, prompt: true) %>
+    <%= form.collection_select(:clothing_type_id, ClothingType.all, :id, :clothing_category, prompt: true) %>
   </div>
 
   <div class="field">
     <%= form.label :gender_id %>
-    <%= form.collection_select(:gender_id, @gender.order(:gender_style), :id, :gender_style, prompt: true) %>
+    <%= form.collection_select(:gender_id, Gender.all, :id, :gender_style, prompt: true) %>
     </select>
  
   </div>
 
   <div class="field">
     <%= form.label :clothing_size_id %>
-    <%= form.collection_select(:clothing_size_id, @clothing_size, :id, :size, prompt: true) %>
+    <%= form.collection_select(:clothing_size_id, ClothingSize.all, :id, :size, prompt: true) %>
     </select>
   </div>
 

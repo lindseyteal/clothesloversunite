@@ -10,6 +10,8 @@ class ClothingsController < ApplicationController
   # GET /clothings/1
   # GET /clothings/1.json
   def show
+    @clothing_type = ClothingType.find_by(id: params[:id])
+    @gender = Gender.find_by(id: params[:id])
     # @clothing_types = ClothingType.all
     # @genders = Gender.all
     # @clothing_sizes = ClothingSize.all
@@ -25,8 +27,7 @@ class ClothingsController < ApplicationController
 
   # GET /clothings/1/edit
   def edit
-
-    
+ 
   end
 
   # POST /clothings
@@ -77,6 +78,6 @@ class ClothingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clothing_params
-      params.require(:clothing).permit(:user_id, :title, :description, :clothing_type_id, :gender_id, :clothing_size_id, :item_price, :postage_price, :image)
+      params.require(:clothing).permit(:user_id, :title, :description, :clothing_type_id, :gender_id, :clothing_size_id, :item_price, :postage_price, :image, :clothing_category)
     end
 end
