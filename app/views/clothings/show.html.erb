@@ -2,7 +2,7 @@
 
 <p>
   <strong>Posted by:</strong>
-  <%# <%= @profile.first_name %> 
+  <%= @clothing.user_id %> 
 </p>
 
 <p>
@@ -17,17 +17,17 @@
 
 <p>
   <strong>Clothing type:</strong>
-  <%= @clothing.clothing_type %>
+  <%= @clothing.clothing_type_id %>
 </p>
 
 <p>
   <strong>Gender:</strong>
-  <%= @clothing.gender %>
+  <%= @clothing.gender_id.gender_style %>
 </p>
 
 <p>
   <strong>Clothing size:</strong>
-  <%= @clothing.clothing_size %>
+  <%= @clothing.clothing_size_id %>
 </p>
 
 <p>
@@ -47,6 +47,6 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_clothing_path(@clothing) %> |
+<%= link_to 'Edit', edit_clothing_path %> |
 <%= link_to 'Back', clothings_path %> |
 <%= link_to 'Delete', @clothing, method: :delete, data: { confirm: 'Are you sure?' }  %>

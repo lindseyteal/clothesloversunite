@@ -10,9 +10,9 @@ class ClothingsController < ApplicationController
   # GET /clothings/1
   # GET /clothings/1.json
   def show
-    @clothing_type = ClothingType.all
-    @gender = Gender.all
-    @clothing_size = ClothingSize.all
+    # @clothing_types = ClothingType.all
+    # @genders = Gender.all
+    # @clothing_sizes = ClothingSize.all
   end
 
   # GET /clothings/new

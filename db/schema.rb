@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180508063425) do
+ActiveRecord::Schema.define(version: 20180509052236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 20180508063425) do
     t.bigint "gender_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "clothing_size"
+    t.string "size"
     t.index ["gender_id"], name: "index_clothing_sizes_on_gender_id"
   end
 
   create_table "clothing_types", force: :cascade do |t|
-    t.string "clothing_type"
+    t.string "clothing_category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20180508063425) do
   create_table "genders", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "gender"
+    t.string "gender_style"
   end
 
   create_table "profiles", force: :cascade do |t|

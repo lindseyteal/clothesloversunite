@@ -11,7 +11,7 @@
 <table>
   <thead>
     <tr>
-      <%# <th>Posted by</th> %>
+      <th>Posted by</th>
       <th>Title</th>
       <th>Description</th>
       <th>Clothing type</th>
@@ -27,12 +27,12 @@
   <tbody>
     <% @clothings.each do |clothing| %>
       <tr>
-        <%# <td><%= clothing.user %></td>
+        <td><%= clothing.user_id %></td>
         <td><%= clothing.title %></td>
         <td><%= clothing.description %></td>
-        <td><%= clothing.clothing_type %></td>
-        <td><%= clothing.gender %></td>
-        <td><%= clothing.clothing_size %></td>
+        <td><%= clothing.clothing_type_id %></td>
+        <td><%= clothing.gender_id %></td>
+        <td><%= clothing.clothing_size_id %></td>
         <td><%= clothing.item_price %></td>
         <td><%= clothing.postage_price %></td>
         <td><% if clothing.image.present? %>
