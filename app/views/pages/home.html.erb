@@ -20,12 +20,6 @@
   </li>
 <% end %>
 <li>
-<%= link_to('Search Clothes', @clothings) %>
+<%= link_to('Search Clothes', clothings_path) %>
 </li> 
 
-<%# #putting here for later on %>
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>

@@ -2,10 +2,16 @@
 
 <h1>Clothings</h1>
 
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <%# <th>Posted by</th> %>
       <th>Title</th>
       <th>Description</th>
       <th>Clothing type</th>
@@ -21,7 +27,7 @@
   <tbody>
     <% @clothings.each do |clothing| %>
       <tr>
-        <td><%= clothing.user %></td>
+        <%# <td><%= clothing.user %></td>
         <td><%= clothing.title %></td>
         <td><%= clothing.description %></td>
         <td><%= clothing.clothing_type %></td>
@@ -29,10 +35,12 @@
         <td><%= clothing.clothing_size %></td>
         <td><%= clothing.item_price %></td>
         <td><%= clothing.postage_price %></td>
-        <td><%= clothing.image_data %></td>
+        <td><% if clothing.image.present? %>
+            <%= image_tag clothing.image_url(:medium) %>
+            <% end %> </td>
         <td><%= link_to 'Show', clothing %></td>
         <td><%= link_to 'Edit', edit_clothing_path(clothing) %></td>
-        <td><%= link_to 'Destroy', clothing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', clothing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
