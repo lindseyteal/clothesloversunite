@@ -21,6 +21,15 @@ class ProfilesController < ApplicationController
     @profile = Profile.new
   end
 
+  # def send_simple_message
+  #   RestClient.post "https://api:key-3ax6xnjp29jd6fds4gc373sgvjxteol0"\
+  #   "@api.mailgun.net/v3/samples.mailgun.org/messages",
+  #   from: "Excited User <excited@samples.mailgun.org>",
+  #   to: @user.email,
+  #   subject: "Hello",
+  #   text: "Testing some Mailgun awesomeness!"
+  # end
+
   # GET /profiles/1/edit
   def edit
     # @profile = current_user

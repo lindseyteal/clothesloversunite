@@ -41,16 +41,16 @@
 
   <div class="field">
     <%= form.label :item_price %>
-    <%= form.number_field :item_price, id: :clothing_item_price, in: 1.0..10.0, step: 0.5 %>
+    <%= number_to_currency(form.number_field :item_price, id: :clothing_item_price, in: 1.0..10.0, step: 0.5) %>
   </div>
 
   <div class="field">
     <%= form.label :postage_price %>
-    <%= form.number_field :postage_price, id: :clothing_postage_price, in: 1.0..10.0, step: 0.5 %>
+    <%= number_to_currency(form.number_field :postage_price, id: :clothing_postage_price, in: 1.0..10.0, step: 0.5) %>
   </div>
 
   <div class="field">
-    <%= form.label :image_data %>
+    <%= form.label :add_pictures %>
     <%= form.hidden_field :image, value: @clothing.cached_image_data %>
     <%= form.file_field :image, id: :photo_image_data %>
   </div>
