@@ -12,45 +12,44 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label 'Title:' %>
     <%= form.text_field :title, id: :clothing_title %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label 'Description:' %>
     <%= form.text_area :description, id: :clothing_description %>
   </div>
 
   <div class="field">
-    <%= form.label :clothing_type_id %>
+    <%= form.label 'Clothing Type:' %>
     <%= form.collection_select(:clothing_type_id, ClothingType.all, :id, :clothing_category, prompt: true) %>
   </div>
 
   <div class="field">
-    <%= form.label :gender_id %>
+    <%= form.label 'Gender' %>
     <%= form.collection_select(:gender_id, Gender.all, :id, :gender_style, prompt: true) %>
     </select>
- 
   </div>
 
   <div class="field">
-    <%= form.label :clothing_size_id %>
+    <%= form.label 'Clothing Size:' %>
     <%= form.collection_select(:clothing_size_id, ClothingSize.all, :id, :size, prompt: true) %>
     </select>
   </div>
 
   <div class="field">
-    <%= form.label :item_price %>
+    <%= form.label 'Price (max $10)' %>
     <%= number_to_currency(form.number_field :item_price, id: :clothing_item_price, in: 1.0..10.0, step: 0.5) %>
   </div>
 
   <div class="field">
-    <%= form.label :postage_price %>
+    <%= form.label 'Postage Price' %>
     <%= number_to_currency(form.number_field :postage_price, id: :clothing_postage_price, in: 1.0..10.0, step: 0.5) %>
   </div>
 
   <div class="field">
-    <%= form.label :add_pictures %>
+    <%= form.label 'Add Picture:' %>
     <%= form.hidden_field :image, value: @clothing.cached_image_data %>
     <%= form.file_field :image, id: :photo_image_data %>
   </div>
