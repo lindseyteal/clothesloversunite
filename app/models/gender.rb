@@ -1,3 +1,3 @@
 class Gender < ApplicationRecord
-    belongs_to :clothing
+    # belongs_to :clothing
 end
