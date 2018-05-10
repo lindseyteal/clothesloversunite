@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   root to: "pages#home"
+  get '/pages/contact', to: 'pages#contact'
+
   resources :profiles
   # get 'pages/home' to: 'pages#home'
   get '/profiles/:id/edit', to: 'profiles#edit'
