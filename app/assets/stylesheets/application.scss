@@ -14,4 +14,17 @@
  *= require_self
  */
 
+ @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+ @import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+* {   
+   font-family: 'Quicksand', sans-serif;
+}
+
+ h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    text-align: center;
+ }
+
  

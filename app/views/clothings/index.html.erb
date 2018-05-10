@@ -10,7 +10,7 @@
   
 <% @clothings.each do |clothing| %>
   <div class="row">  
-    <% if clothing.image.present? %>
+    <% if clothing.image_data.present? %>
         <%= image_tag clothing.image_url(:medium) %>
         <% end %>
     <br>

@@ -2,6 +2,8 @@
 
 https://clothesloversunite.herokuapp.com/
 
+https://github.com/lindseyteal/clothesloversunite
+
 ### The Problem
 My used clothing stores, especially in Melbourne have become quite expensive. Wanted to keep the cost low. Great for the environment. Pass on your loved clothes knowing that someone else will love them as much as you did. Sometimes they struggle to give away loved items of clothing.
 
