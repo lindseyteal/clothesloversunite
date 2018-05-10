@@ -1,13 +1,13 @@
 class ClothingsController < ApplicationController
-  before_action :set_clothing, only: [:show, :edit, :update, :destroy]
+  before_action :set_clothing, only: [:charge, :show, :edit, :update, :destroy]
 
   # GET /clothings
   # GET /clothings.json
   def index
     @clothings = Clothing.all
-    @clothing_type = ClothingType.find_by(id: params[:id])
-    @gender = Gender.find_by(id: params[:id])
-    @clothing_size = ClothingSize.find_by(id: params[:id])
+    @clothing_types = ClothingType.all
+    @genders = Gender.all
+    @clothing_sizes = ClothingSize.all
   end
 
   # GET /clothings/1
@@ -16,9 +16,6 @@ class ClothingsController < ApplicationController
     @clothing_type = ClothingType.find_by(id: params[:id])
     @gender = Gender.find_by(id: params[:id])
     @clothing_size = ClothingSize.find_by(id: params[:id])
-    # @clothing_types = ClothingType.all
-    # @genders = Gender.all
-    # @clothing_sizes = ClothingSize.all
   end
 
   # GET /clothings/new
@@ -27,6 +24,31 @@ class ClothingsController < ApplicationController
     @clothing_type = ClothingType.all
     @gender = Gender.all
     @clothing_size = ClothingSize.all
+  end
+
+  def charge
+    if current_user.stripe_id.blank?
+      customer = Stripe::Customer.create(
+        email: params[:stripeEmail],
+        source: params[:stripeToken]
+    )
+      current_user.stripe_id = customer.id
+      current_user.save!
+    end
+
+    charge = Stripe::Charge.create(
+      customer: current_user.stripe_id,
+      amount: ((@clothing.item_price) + (@clothing.postage_price)) * 100,
+      description: @clothing.description,
+      currency: 'AUD'
+    )
+
+    flash[:notice] = 'Payment made!'
+    redirect_back fallback_location: clothings_path
+
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_back fallback_location: clothings_path
   end
 
   # GET /clothings/1/edit

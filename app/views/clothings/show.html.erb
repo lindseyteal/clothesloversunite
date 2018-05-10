@@ -32,12 +32,12 @@
 
 <p>
   <strong>Item price:</strong>
-  <%= @clothing.item_price %>
+  <%= number_to_currency(@clothing.item_price)%>
 </p>
 
 <p>
   <strong>Postage price:</strong>
-  <%= @clothing.postage_price %>
+  <%= number_to_currency(@clothing.postage_price) %>
 </p>
 
 <p>
@@ -46,6 +46,15 @@
     <%= image_tag @clothing.image_url(:medium) %>
   <% end %>
 </p>
+
+<% if user_signed_in? %>
+  <%= render 'charge_form', clothing: @clothing, user: current_user %>
+  <% else %>
+    <%= link_to new_user_registration_path, class: 'stripe-button-el' do %>
+    <span style="display: block; min-height: 30px;">Pay with Card</span>
+  <% end %>
+<% end %>
+
 
 <%= link_to 'Edit', edit_clothing_path %> |
 <%= link_to 'Back', clothings_path %> |
