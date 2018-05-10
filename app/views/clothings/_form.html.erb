@@ -27,7 +27,7 @@
   </div>
 
   <div class="field">
-    <%= form.label 'Gender' %>
+    <%= form.label 'Gender:' %>
     <%= form.collection_select(:gender_id, Gender.all, :id, :gender_style, prompt: true) %>
     </select>
   </div>
@@ -39,12 +39,12 @@
   </div>
 
   <div class="field">
-    <%= form.label 'Price (max $10)' %>
+    <%= form.label 'Price (max $10):' %>
     <%= number_to_currency(form.number_field :item_price, id: :clothing_item_price, in: 1.0..10.0, step: 0.5) %>
   </div>
 
   <div class="field">
-    <%= form.label 'Postage Price' %>
+    <%= form.label 'Postage Price:' %>
     <%= number_to_currency(form.number_field :postage_price, id: :clothing_postage_price, in: 1.0..10.0, step: 0.5) %>
   </div>
 

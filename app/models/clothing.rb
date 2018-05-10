@@ -6,4 +6,9 @@ class Clothing < ApplicationRecord
   has_one :clothing_size
   has_one :clothing_type
   
+
+  def self.search(search)
+    where("title ILIKE ? OR description ILIKE ?", "%#{search}%", "%#{search}%") 
+  end
+
 end

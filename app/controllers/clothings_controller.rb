@@ -9,6 +9,13 @@ class ClothingsController < ApplicationController
     @clothing_types = ClothingType.all
     @genders = Gender.all
     @clothing_sizes = ClothingSize.all
+
+    @clothings = Clothing.all
+      if params[:search]
+        @clothings = Clothing.search(params[:search]).order("created_at DESC")
+      else
+        @clothings = Clothing.all.order("created_at DESC")
+      end
   end
 
   # GET /clothings/1
