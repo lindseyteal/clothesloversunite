@@ -1,25 +1,42 @@
-<h1> Clothes Lovers Unite </h1>
-
+<div class ='navbar' style="width:100%", style="text-decoration:none;">
 <% if user_signed_in? %>
-  <li>
+  <button style="width:33.3%">
   <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-  </li>
+  </button>
 <% else %>
-  <li>
+  <button style="width:33.3%">
   <%= link_to('Login', new_user_session_path)  %>  
-  </li>
+  </button>
 <% end %>
 
 <% if user_signed_in? %>
-  <li>
+  <button style="width:33.3%">
   <%= link_to('Profile', new_profile_path) %>
-  </li>
+  </button>
 <% else %>
-  <li>
+  <button style="width:33.3%">
   <%= link_to('Register', new_user_registration_path)  %>
-  </li>
+  </button>
 <% end %>
-<li>
+  <button style="width:33.3%">
 <%= link_to('Search Clothes', clothings_path) %>
-</li> 
+  </button>
+</div>
+
+<div style="width:100%">
+<%= image_tag("clothesloversunite.png", class: "logo", alt: "Logo") %>
+</div>
+
+<div class='hometext'>
+A space for clothes lovers to buy and sell pre loved clothing from the comfort of their home.
+<br>
+Sell you loved pieces to someone who will love them as much as you. 
+<br>
+Buy another clothes lovers treasures pieces.
+<br>
+The best part....all items are $10 and under.
+</div>
+
+
+
 

@@ -19,12 +19,69 @@
 
 * {   
    font-family: 'Quicksand', sans-serif;
+   font-size: 18px;
+   text-decoration: none;
 }
 
- h1 {
+
+h1 {
     font-family: 'Playfair Display', serif;
     font-size: 48px;
     text-align: center;
  }
 
+ p {
+    text-align: center;
+    font-size: 18px;
+}
  
+.logo {
+    display: block;
+    margin: auto;
+}
+
+.hometext {
+    text-align: center;
+    font-size: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    line-height: 1.5em;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    border-left: none;
+    float: center;
+    
+}
+.navbar:link {
+    color: black;
+}
+
+.navbar button {
+    font-size: 20px; 
+    background-color: #01B4BC;
+    border: 1px solid #C4C4C4;
+    color: black;
+    padding: 10px 24px; 
+    cursor: pointer; 
+    float: left;
+}
+
+.navbar button:not(:last-child) {
+    border-right: none;
+}
+
+.navbar:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.navbar button:hover {
+    background-color:#FFF952;
+    color: black;
+}
+
+
