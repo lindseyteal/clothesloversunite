@@ -1,9 +1,6 @@
-<p id="notice"><%= notice %></p>
+<br>
 
-<p>
-  <strong>Posted by:</strong>
-  <%= @clothing.user_id %> 
-</p>
+<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Title:</strong>
@@ -41,7 +38,7 @@
 </p>
 
 <p>
-  <strong>Image data:</strong>
+  <strong>Picture:</strong>
   <% if @clothing.image_data.present? %>
     <%= image_tag @clothing.image_url(:medium) %>
   <% end %>
