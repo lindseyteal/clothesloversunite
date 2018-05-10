@@ -5,6 +5,9 @@ class ClothingsController < ApplicationController
   # GET /clothings.json
   def index
     @clothings = Clothing.all
+    @clothing_type = ClothingType.find_by(id: params[:id])
+    @gender = Gender.find_by(id: params[:id])
+    @clothing_size = ClothingSize.find_by(id: params[:id])
   end
 
   # GET /clothings/1
@@ -79,6 +82,6 @@ class ClothingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clothing_params
-      params.require(:clothing).permit(:user_id, :title, :description, :clothing_type_id, :gender_id, :clothing_size_id, :item_price, :postage_price, :image, :clothing_category)
+      params.require(:clothing).permit(:user_id, :title, :description, :clothing_type_id, :gender_id, :clothing_size_id, :item_price, :postage_price, :image)
     end
 end

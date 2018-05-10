@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Clothings</h1>
+<h1>Clothing</h1>
 
 <%= form_tag("/search", method: "get") do %>
   <%= label_tag(:q, "Search for:") %>
@@ -30,9 +30,9 @@
         <td><%= clothing.user_id %></td>
         <td><%= clothing.title %></td>
         <td><%= clothing.description %></td>
-        <td><%= clothing.clothing_type_id %></td>
-        <td><%= clothing.gender_id %></td>
-        <td><%= clothing.clothing_size_id %></td>
+        <td><%= @clothing_type.clothing_category %></td>
+        <td><%= @gender %></td>
+        <td><%= @clothing_size %></td>
         <td><%= clothing.item_price %></td>
         <td><%= clothing.postage_price %></td>
         <td><% if clothing.image.present? %>
