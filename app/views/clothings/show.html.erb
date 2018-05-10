@@ -39,7 +39,6 @@
 </p>
 
 <p>
-  <strong>Picture:</strong>
   <% if @clothing.image_data.present? %>
     <%= image_tag @clothing.image_url(:medium) %>
   <% end %>
@@ -53,6 +52,7 @@
   <% end %>
 <% end %>
 
+<br>
 
 <%= link_to 'Edit', edit_clothing_path %> |
 <%= link_to 'Back', clothings_path %> |

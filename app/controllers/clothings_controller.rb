@@ -1,5 +1,6 @@
 class ClothingsController < ApplicationController
   before_action :set_clothing, only: [:charge, :show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy] 
 
   # GET /clothings
   # GET /clothings.json
